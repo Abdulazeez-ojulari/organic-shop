@@ -1,0 +1,100 @@
+<div class="alert alert-warning" role="alert" style="top: 0; text-align: center;">
+    Note: You are able to view this page because i made you an admin
+</div>
+<p>
+
+    <a routerLink="/admin/item/new" class="btn btn-primary">New Product</a>
+
+</p>
+
+<!-- <p>
+    <input #search
+    (keyup)='filter(search.value)'
+    type="text" class="form-control" placeholder="Search...">
+</p> -->
+
+
+
+<!-- <ngx-datatable class="material" [rows]="items" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+  [rowHeight]="50" [scrollbarV]="true" [sorts]="[{prop: 'name', dir: 'desc'}]">
+
+  <ngx-datatable-column name="Title" prop="title">
+    <ng-template let-row="item" ngx-datatable-cell-template>
+      {{item.title}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Price" prop="price">
+    <ng-template let-row="item" ngx-datatable-cell-template>
+      {{item.price}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column>
+    <ng-template let-row="item" ngx-datatable-cell-template>
+        <a [routerLink]="['/admin/item/', item.key]">Edit</a>
+    </ng-template>
+  </ngx-datatable-column>
+
+</ngx-datatable> -->
+
+<!-- <data-table
+    [items]='items'
+    [itemCount]='itemCount'
+    (reload)='reloadItems($event)'
+>
+
+    <data-table-column
+    
+    [property]="'title'"
+    [header]="'Title'"
+    [sortable]='true'
+    [resizable]='true'
+    >
+
+    </data-table-column>
+
+    <data-table-column
+    
+    [property]="'price'"
+    [header]="'Price'"
+    [sortable]='true'
+    [resizable]='true'
+    >
+    <ng-template #dataTableCell let-item='item'>
+        {{ item.price | currency:'NG':true}}
+    </ng-template>
+    </data-table-column>
+
+    <data-table-column
+    
+    [property]="'key'"
+    >
+    <ng-template #dataTableCell let-item='item'>
+        <a [routerLink]="['/admin/item/', item.key]">Edit</a>
+    </ng-template>
+
+    </data-table-column>
+
+
+</data-table> -->
+
+<table class="table table-hover table-bordered" style="margin-bottom: 30vh;">
+    <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let p of filteredProducts">
+            <td>{{ p.data.title }}</td>
+            <td>{{ p.data.price | currency:'NGN':'symbol-narrow' }}</td>
+            <td>
+                <a [routerLink]="['/admin/item/', p.$key]">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

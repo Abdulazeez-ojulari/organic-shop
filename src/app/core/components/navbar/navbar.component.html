@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" style="background-color: #e3f2fd;">
+  <div class="container">
+      <a class="navbar-brand" routerLink="/">
+        <i class="fa fa-leaf" aria-hidden="true"></i>
+      </a>
+      <a class="nav-item" routerLink="/shopping-cart">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+          {{ cart.totalItemsCount }}
+        </span>
+      </a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          
+        </li>
+      </ul>
+      <ul class="justify-content-end navbar-nav">
+        <ng-template #anonymousUser>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+
+        </ng-template>
+  
+        <li *ngIf='appUser; else anonymousUser' ngbDropdown class="nav-item dropdown show">
+          <a class="nav-link dropdown-toggle show" id="dropdown01" ngbDropdownToggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user-circle" aria-hidden="true"></i>
+            {{ appUser.user || username }}
+          </a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <!-- <a ngbDropdownItem class="dropdown-item" routerLink="my/orders">My Orders</a> -->
+            <ng-container *ngIf='appUser.isAdmin'>
+              <a ngbDropdownItem class="dropdown-item" routerLink="admin/items">Manage Products</a>
+              <a ngbDropdownItem class="dropdown-item" routerLink="admin/orders">Manage Orders</a>
+            </ng-container>
+            <a ngbDropdownItem class="dropdown-item" (click) = "logout()" >Log Out</a>
+          </div>
+        </li>
+      </ul>
+    
+      <!-- <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        
+        
+      </div> -->
+
+  </div>
+  
+  </nav>
+
+  <nav class="navbar fixed-bottom navbar-light bg-light">
+    <a class="navbar-brand" href="#">Created By: Ojulari Abdulazeez</a>
+    </nav>

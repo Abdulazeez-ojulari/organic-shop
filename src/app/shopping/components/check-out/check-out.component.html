@@ -1,0 +1,37 @@
+<h2>Shipping</h2>
+
+<div class="row">
+  <div class="col-md">
+    <shopping-cart-summary [cart]="cart" ></shopping-cart-summary>
+  </div>
+  <div class="col-md" style="margin-top: 3vh; margin-bottom: 30vh;">
+    <form #f="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input #name="ngModel" id="name" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+          <div *ngIf="name.errors?.required">Name is required.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="addressLine">Address</label>
+        <input #addressLine="ngModel" id="addressLine" name="addressLine" [(ngModel)]="shipping.addressLine" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="addressLine.touched && addressLine.invalid">
+          <div *ngIf="addressLine.errors?.required">Address Line 1 is required.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input #city="ngModel" id="city" name="city" [(ngModel)]="shipping.city" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+          <div *ngIf="city.errors?.required">City is required.</div>
+        </div>
+      </div>
+      <button
+        [disabled]="!f.valid" 
+        (click)="placeOrder()"
+        class="btn btn-primary">Place Order</button>
+    </form>
+  </div>
+  
+</div>

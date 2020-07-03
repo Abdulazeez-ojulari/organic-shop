@@ -1,0 +1,21 @@
+<items-filter [category]="category"></items-filter>
+
+<div class="container" style="margin-bottom: 30vh;">
+    <div class="row" *ngIf="cart$ | async as cart">
+        <ng-container *ngFor="let p of filteredProducts; let i = index">
+            <div class="col-md">
+                <item-card [item]='p' [shopping-cart]='cart' ></item-card>
+            </div>
+            <!-- <div *ngIf='(i + 1) % 4 === 0' class="w-100"></div> -->
+    
+        </ng-container>
+        
+    </div>
+</div>
+
+<div *ngIf="filteredProducts.length === 0" class="alert alert-secondary" style="top: 0vh; text-align: center;" role="alert">
+    {{ category }} category is empty
+</div>
+
+
+

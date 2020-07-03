@@ -1,0 +1,21 @@
+<div class="alert alert-warning" role="alert" style="top: 0; text-align: center;">
+    Note: You are able to view this page because i made you an admin
+</div>
+<h1>Orders</h1>
+<table class="table table-hover table-bordered" style="margin-bottom: 30vh;">
+    <thead class="thead-dark">
+        <tr>
+            <th>Customer</th>
+            <th class="text-center" style="width: 230px">Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{ order.shipping.name }}</td>
+
+            <td>{{ order.datePlaced | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+            <td class="text-right"><a href="">view</a></td>
+        </tr>
+    </tbody>
+</table>

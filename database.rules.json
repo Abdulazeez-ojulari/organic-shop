@@ -1,0 +1,16 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "categories": {
+      ".read": true
+    },
+    "products": {
+      ".read": true
+    },
+    "shopping-carts": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}
